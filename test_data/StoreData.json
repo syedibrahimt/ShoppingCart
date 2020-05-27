@@ -1,0 +1,64 @@
+{
+    "products": [
+        {
+            "name": "Nokia 8 Siroco",
+            "price": "Rs. 569",
+            "category": "amazon",
+            "image": "phone"
+        },
+        {
+            "name": "Vaidki Festive party wear",
+            "price": "Rs. 222",
+            "category": "flipkart",
+            "image": "shoe"
+        },
+        {
+            "name": "Samsung TV",
+            "price": "Rs. 333",
+            "category": "amazon",
+            "image": "tv"
+        },
+        {
+            "name": "SAmsung Mobile",
+            "price": "Rs. 444",
+            "category": "flipkart",
+            "image": "phone"
+        },
+        {
+            "name": "Earton Hiking",
+            "price": "Rs. 555",
+            "category": "amazon",
+            "image": "shoe"
+        },
+        {
+            "name": "Polo T-Shirt",
+            "price": "Rs. 666",
+            "category": "flipkart",
+            "image": "t_shirt"
+        },
+        {
+            "name": "Levis jeans",
+            "price": "Rs. 444",
+            "category": "amazon",
+            "image": "jeans"
+        },
+        {
+            "name": "EarPhones",
+            "price": "Rs. 112",
+            "category": "flipkart",
+            "image": "head_phones"
+        },
+        {
+            "name": "Leather Wallet",
+            "price": "Rs. 322",
+            "category": "amazon",
+            "image": "wallet"
+        },
+        {
+            "name": "Sports Shoe",
+            "price": "Rs. 454",
+            "category": "flipkart",
+            "image": "shoe"
+        }
+    ]
+}
