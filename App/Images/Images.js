@@ -8,5 +8,7 @@ export default {
     tv: require('./tv.png'),
     wallet: require('./wallet.png'),
     notification: require('./notification.png'),
-    delete: require('./delete.png')
+    delete: require('./delete.png'),
+    star: require('./star.png'),
+    empty_star: require('./empty_star.png')
 }

@@ -19,15 +19,25 @@ export default StyleSheet.create({
     deleteIconStyle: {
         height: wp(6),
         width: wp(6),
+        tintColor: '#1269ff'
     },
     midSectionStyle: {
         flexDirection: 'column',
         alignItems: 'flex-start',
-        flex: 3
+        flex: 3,
+        paddingLeft: wp(5)
     },
     midSectionBottomStyle: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    nameTextStyle: {
+        fontSize: wp(5),
+        color: '#1269ff'
+    },
+    priceTextStyle: {
+        fontSize: wp(4),
+        color: '#7a7a7a'
     }
 })
