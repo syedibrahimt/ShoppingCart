@@ -2,7 +2,7 @@
 
 ShoppingCart is a ReactNative project for interview process.
 
-# NOTE
+### NOTE
 redux state is used only for few usecases, rest of them local state is used.
 
 ## Installation
