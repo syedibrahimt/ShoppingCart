@@ -42,7 +42,7 @@ class ProductCard extends React.Component {
                 <View style={Style.midSectionStyle}>
                     <Text style={Style.nameTextStyle} numberOfLines={1}>{product.name}</Text>
                     <View style={Style.midSectionBottomStyle}>
-                        <Text style={Style.priceTextStyle}>{product.price}</Text>
+                        <Text style={Style.priceTextStyle}>Rs.{product.price} </Text>
                         {ratings}
                     </View>
                 </View>

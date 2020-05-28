@@ -2,70 +2,70 @@
     "products": [
         {
             "name": "Nokia 8 Siroco",
-            "price": "Rs. 569",
+            "price": 569,
             "category": "amazon",
             "image": "phone",
             "rating": 0
         },
         {
             "name": "Vaidki Festive party wear",
-            "price": "Rs. 222",
+            "price": 222,
             "category": "flipkart",
             "image": "shoe",
             "rating": 0
         },
         {
             "name": "Samsung TV",
-            "price": "Rs. 333",
+            "price": 333,
             "category": "amazon",
             "image": "tv",
             "rating": 0
         },
         {
             "name": "SAmsung Mobile",
-            "price": "Rs. 444",
+            "price": 444,
             "category": "flipkart",
             "image": "phone",
             "rating": 0
         },
         {
             "name": "Earton Hiking",
-            "price": "Rs. 555",
+            "price": 555,
             "category": "amazon",
             "image": "shoe",
             "rating": 0
         },
         {
             "name": "Polo T-Shirt",
-            "price": "Rs. 666",
+            "price": 666,
             "category": "flipkart",
             "image": "t_shirt",
             "rating": 0
         },
         {
             "name": "Levis jeans",
-            "price": "Rs. 444",
+            "price": 444,
             "category": "amazon",
             "image": "jeans",
             "rating": 0
         },
         {
             "name": "EarPhones",
-            "price": "Rs. 112",
+            "price": 112,
             "category": "flipkart",
             "image": "head_phones",
             "rating": 0
         },
         {
             "name": "Leather Wallet",
-            "price": "Rs. 322",
+            "price": 322,
             "category": "amazon",
             "image": "wallet",
             "rating": 0
         },
         {
             "name": "Sports Shoe",
-            "price": "Rs. 454",
+            "price": 454,
             "category": "flipkart",
             "image": "shoe",
             "rating": 0

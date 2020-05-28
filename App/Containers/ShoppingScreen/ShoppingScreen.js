@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import Style from './ShoppingScreenStyle'
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import Header from '../../Components/Header/Header';
@@ -7,6 +7,7 @@ import StoreData from '../../../test_data/StoreData.json';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../Images/Images'
+import BuyButton from '../../Components/BuyButton/BuyButton';
 
 class ShoppingScreen extends React.Component {
     constructor(props) {
@@ -15,7 +16,9 @@ class ShoppingScreen extends React.Component {
             productList: [],
             singleView: true,
             flipkartProducts: [],
-            amazonProducts: []
+            amazonProducts: [],
+            flipkartTotal: 0,
+            amazonTotal: 0,
         }
     }
     componentDidMount() {
@@ -23,6 +26,11 @@ class ShoppingScreen extends React.Component {
             productList: StoreData.products
         })
     }
+    sum = function (items, prop) {
+        return items.reduce(function (a, b) {
+            return a + b[prop];
+        }, 0);
+    };
     onLinkClick = () => {
         const allProducts = this.state.productList;
         const amazonProducts = allProducts.filter(product => product.category === "amazon")
@@ -30,7 +38,9 @@ class ShoppingScreen extends React.Component {
         this.setState({
             flipkartProducts: flipkartProducts,
             amazonProducts: amazonProducts,
-            singleView: !this.state.singleView
+            singleView: !this.state.singleView,
+            amazonTotal: this.sum(amazonProducts, 'price'),
+            flipkartTotal: this.sum(flipkartProducts, 'price')
         })
     }
     onRatingPress = (product, key) => {
@@ -53,7 +63,9 @@ class ShoppingScreen extends React.Component {
             this.setState({
                 flipkartProducts: updatedFlipkartProducts,
                 amazonProducts: updatedAmazonProducts,
-                productList: updatedFlipkartProducts.concat(updatedAmazonProducts)
+                productList: updatedFlipkartProducts.concat(updatedAmazonProducts),
+                amazonTotal: this.sum(updatedAmazonProducts, 'price'),
+                flipkartTotal: this.sum(updatedFlipkartProducts, 'price')
             })
         }
     }
@@ -77,6 +89,8 @@ class ShoppingScreen extends React.Component {
                             )}
                             keyExtractor={item => item.name}
                         />
+                        <Text style={Style.totalTextStyle}>Total ({this.state.flipkartProducts.length} items) Rs {this.state.flipkartTotal}</Text>
+                        <BuyButton />
                         <Image source={Images.amazon} style={Style.storeLogoStyle} />
                         <FlatList
                             data={this.state.amazonProducts}
@@ -85,6 +99,8 @@ class ShoppingScreen extends React.Component {
                             )}
                             keyExtractor={item => item.name}
                         />
+                        <Text style={Style.totalTextStyle}>Total ({this.state.amazonProducts.length} items) Rs {this.state.amazonTotal}</Text>
+                        <BuyButton />
                     </ScrollView>
                 }
 

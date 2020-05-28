@@ -19,7 +19,8 @@ export default StyleSheet.create({
     deleteIconStyle: {
         height: wp(6),
         width: wp(6),
-        tintColor: '#1269ff'
+        tintColor: '#1269ff',
+        margin: wp(2)
     },
     midSectionStyle: {
         flexDirection: 'column',
