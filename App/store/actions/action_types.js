@@ -1,0 +1,4 @@
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const ADD_PRODUCTS = 'ADD_PRODUCTS';
+export const UDPATE_PRODUCT = 'UDPATE_PRODUCT';
+export const CHANGE_VIEW = 'CHANGE_VIEW';

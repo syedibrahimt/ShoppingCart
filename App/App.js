@@ -7,10 +7,15 @@
  */
 import React from 'react';
 import AppNavigator from './Containers/AppNavigator/AppNavigator';
+import { Provider } from 'react-redux';
+import configStore from '../App/store/config_store';
+const store = configStore();
 
 const App = () => {
   return (
-    <AppNavigator />
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
   );
 };
 

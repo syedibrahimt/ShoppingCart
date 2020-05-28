@@ -8,13 +8,13 @@ import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../Images/Images'
 import BuyButton from '../../Components/BuyButton/BuyButton';
+import { deleteProduct, addProducts, updateProduct, changeView } from '../../store/actions/index';
+import { connect } from 'react-redux';
 
 class ShoppingScreen extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            productList: [],
-            singleView: true,
             flipkartProducts: [],
             amazonProducts: [],
             flipkartTotal: 0,
@@ -22,9 +22,7 @@ class ShoppingScreen extends React.Component {
         }
     }
     componentDidMount() {
-        this.setState({
-            productList: StoreData.products
-        })
+        this.props.addProducts(StoreData.products)
     }
     sum = function (items, prop) {
         return items.reduce(function (a, b) {
@@ -32,38 +30,34 @@ class ShoppingScreen extends React.Component {
         }, 0);
     };
     onLinkClick = () => {
-        const allProducts = this.state.productList;
+        const allProducts = this.props.productList;
         const amazonProducts = allProducts.filter(product => product.category === "amazon")
         const flipkartProducts = allProducts.filter(product => product.category === "flipkart")
+        this.props.changeView()
         this.setState({
             flipkartProducts: flipkartProducts,
             amazonProducts: amazonProducts,
-            singleView: !this.state.singleView,
             amazonTotal: this.sum(amazonProducts, 'price'),
             flipkartTotal: this.sum(flipkartProducts, 'price')
         })
     }
     onRatingPress = (product, key) => {
-        const productList = this.state.productList;
-        const objIndex = this.state.productList.findIndex((obj => obj.name === product.name));
+        const productList = this.props.productList;
+        const objIndex = this.props.productList.findIndex((obj => obj.name === product.name));
         productList[objIndex].rating = key;
-        this.setState({
-            productList: productList
-        })
+        this.props.updateProduct(productList)
     }
     onDeletePress = (product) => {
-        if (this.state.singleView) {
-            const updatedProductList = this.state.productList.filter(p => p != product)
-            this.setState({
-                productList: updatedProductList
-            })
+        if (this.props.singleView) {
+            const updatedProductList = this.props.productList.filter(p => p != product)
+            this.props.deleteProduct(updatedProductList)
         } else {
             const updatedFlipkartProducts = this.state.flipkartProducts.filter(p => p != product)
             const updatedAmazonProducts = this.state.amazonProducts.filter(p => p != product)
+            this.props.updateProduct(updatedFlipkartProducts.concat(updatedAmazonProducts))
             this.setState({
                 flipkartProducts: updatedFlipkartProducts,
                 amazonProducts: updatedAmazonProducts,
-                productList: updatedFlipkartProducts.concat(updatedAmazonProducts),
                 amazonTotal: this.sum(updatedAmazonProducts, 'price'),
                 flipkartTotal: this.sum(updatedFlipkartProducts, 'price')
             })
@@ -73,8 +67,8 @@ class ShoppingScreen extends React.Component {
         return (
             <SafeAreaView style={Style.rootStyle}>
                 <Header onLinkClick={() => this.onLinkClick} />
-                {this.state.singleView ? <FlatList
-                    data={this.state.productList}
+                {this.props.singleView ? <FlatList
+                    data={this.props.productList}
                     renderItem={({ item }) => (
                         <ProductCard product={item} onRatingPress={this.onRatingPress} onDeletePress={this.onDeletePress} />
                     )}
@@ -109,4 +103,20 @@ class ShoppingScreen extends React.Component {
     }
 }
 
-export default ShoppingScreen;
+const mapStateToProps = state => {
+    return {
+        productList: state.shopping.productList,
+        singleView: state.shopping.singleView
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addProducts: (data) => dispatch(addProducts(data)),
+        deleteProduct: (data) => dispatch(deleteProduct(data)),
+        updateProduct: (data) => dispatch(updateProduct(data)),
+        changeView: () => dispatch(changeView()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingScreen);
