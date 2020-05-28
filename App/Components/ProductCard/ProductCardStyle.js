@@ -39,5 +39,15 @@ export default StyleSheet.create({
     priceTextStyle: {
         fontSize: wp(4),
         color: '#7a7a7a'
+    },
+    ratingStarStyle: {
+        width: wp(6),
+        height: wp(6),
+        margin: wp(0.5)
+    },
+    rootStyle: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginHorizontal: wp(2)
     }
 })

@@ -10,5 +10,7 @@ export default {
     notification: require('./notification.png'),
     delete: require('./delete.png'),
     star: require('./star.png'),
-    empty_star: require('./empty_star.png')
+    empty_star: require('./empty_star.png'),
+    flipkart: require('./flipkart.jpg'),
+    amazon: require('./amazon.jpg'),
 }
