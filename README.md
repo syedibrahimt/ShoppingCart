@@ -4,26 +4,20 @@ ShoppingCart is a ReactNative project for interview process.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+1) Clone the project
+2) Run the below commands
 
-```bash
-pip install foobar
+```
+npm i (or) yarn
+react-native link
+react-native run-android
 ```
 
-## Usage
+## Important libraries and their versions
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
 ```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+react-native 0.61
+react-navigation 5.x 
+redux
+react-redux
+```
